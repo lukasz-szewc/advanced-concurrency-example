@@ -3,7 +3,7 @@ package de.concurrency.multithreading.semaphore;
 public class ReentrantApp {
 
     public static void main(String[] args) {
-        SepahoredResource lockedResource = new SepahoredResource();
+        SemaphoredResource lockedResource = new SemaphoredResource();
 
         LockConsumer lockConsumer1 = new LockConsumer(lockedResource, 80);
         LockConsumer lockConsumer2 = new LockConsumer(lockedResource, 80);

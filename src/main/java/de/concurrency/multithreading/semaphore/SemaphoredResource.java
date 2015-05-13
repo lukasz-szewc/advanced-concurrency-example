@@ -3,7 +3,7 @@ package de.concurrency.multithreading.semaphore;
 import java.util.PriorityQueue;
 import java.util.concurrent.Semaphore;
 
-public class SepahoredResource {
+public class SemaphoredResource {
 
     private Semaphore semaphore = new Semaphore(1);
     private Semaphore secondSemaphore = new Semaphore(0);

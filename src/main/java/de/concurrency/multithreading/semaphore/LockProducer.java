@@ -1,10 +1,10 @@
 package de.concurrency.multithreading.semaphore;
 
 public class LockProducer implements Runnable {
-    private final SepahoredResource lockedResource;
+    private final SemaphoredResource lockedResource;
     private final int maxSize;
 
-    public LockProducer(SepahoredResource lockedResource, int maxSize) {
+    public LockProducer(SemaphoredResource lockedResource, int maxSize) {
         this.lockedResource = lockedResource;
         this.maxSize = maxSize;
     }
