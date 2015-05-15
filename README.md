@@ -1,1 +1,1 @@
-# Project demonstrates features from java.util.concurrent package
+Project demonstrates features from java.util.concurrent package
