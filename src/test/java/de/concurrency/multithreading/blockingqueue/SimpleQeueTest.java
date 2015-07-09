@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
-public class LinkedListAsQueueTest {
+public class SimpleQeueTest {
 
     @Test
     public void shouldThrowNoSuchElementExceptionWhenRemoveIsInvokedOnEmptyQueue() throws Exception {
