@@ -1,4 +1,4 @@
-package de.concurrency.multithreading.blockingqueue;
+package de.concurrency.multithreading.queue;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
-public class SimpleQeueTest {
+public class SimpleQueueTest {
 
     @Test
     public void shouldThrowNoSuchElementExceptionWhenRemoveIsInvokedOnEmptyQueue() throws Exception {
