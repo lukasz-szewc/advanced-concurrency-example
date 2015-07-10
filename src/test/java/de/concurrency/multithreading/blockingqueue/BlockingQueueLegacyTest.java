@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class BlockingQueueTest {
+public class BlockingQueueLegacyTest {
 
     @Test
     public void testSmting2() throws InterruptedException {
@@ -21,16 +21,16 @@ public class BlockingQueueTest {
         Thread producer1 = new Thread(producerRunnable);
         Thread producer2 = new Thread(producerRunnable);
 
-        Thread cosnumer1 = new Thread(consumerRunnable);
-        Thread cosnumer2 = new Thread(consumerRunnable);
+        Thread consumer1 = new Thread(consumerRunnable);
+        Thread consumer2 = new Thread(consumerRunnable);
 
-        cosnumer1.start();
+        consumer1.start();
         producer1.start();
-        cosnumer2.start();
+        consumer2.start();
         producer2.start();
 
-        cosnumer1.join();
-        cosnumer2.join();
+        consumer1.join();
+        consumer2.join();
 
         Assert.assertEquals(arrayBlockingQueue.size(), 0);
     }
@@ -74,7 +74,7 @@ public class BlockingQueueTest {
     }
 
     private Runnable constructProducer(final ArrayBlockingQueue arrayBlockingQueue) {
-        Runnable producer = new Runnable() {
+        return new Runnable() {
             @Override
             public void run() {
                 try {
@@ -84,23 +84,21 @@ public class BlockingQueueTest {
                 }
             }
         };
-        return producer;
     }
 
     private Runnable createProducerRunnable(final int size, final ArrayBlockingQueue arrayBlockingQueue) {
-        Runnable runnable = new Runnable() {
+        return new Runnable() {
             @Override
             public void run() {
                 for (int i = 0; i < size; i++) {
                     try {
                         arrayBlockingQueue.put(String.valueOf(i));
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(BlockingQueueTest.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(BlockingQueueLegacyTest.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
         };
-        return runnable;
     }
 
     private Runnable constructConsumerRunnable(final int size, final ArrayBlockingQueue arrayBlockingQueue) {
@@ -112,7 +110,7 @@ public class BlockingQueueTest {
                     try {
                         arrayBlockingQueue.take();
                     } catch (InterruptedException ex) {
-                        Logger.getLogger(BlockingQueueTest.class.getName()).log(Level.SEVERE, null, ex);
+                        Logger.getLogger(BlockingQueueLegacyTest.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }
